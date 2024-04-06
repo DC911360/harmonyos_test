@@ -1,3 +1,6 @@
+
+import Home from '../view/Home'
+import My from '../view/My'
 @Entry
 @Component
 struct Index {
@@ -14,7 +17,16 @@ struct Index {
       Text(title)
         .fontSize(20)
         .fontColor(this.currentIndex == index?Color.Blue:Color.Black)
+
+
     }
+    // .onClick(()=>{
+    //   // console.log(`${index}`)
+    //   this.currentIndex = index;
+    //   this.constroller.changeIndex(this.currentIndex)
+    // })
+
+
   }
 
   build() {
@@ -22,13 +34,13 @@ struct Index {
       barPosition:BarPosition.End,index:0,controller:this.constroller
     }){
       TabContent(){
-        Text('home')
+        Home()
       }
       .tabBar(this.TabsBuilder('home',0,$r('app.media.home_selected'),$r('app.media.home_normal')))
       .backgroundColor("#eee")
 
       TabContent(){
-        Text('my')
+        My()
       }
       .tabBar(this.TabsBuilder('my',1,$r('app.media.mine_selected'),$r('app.media.mine_normal')))
       .backgroundColor("#eee")
